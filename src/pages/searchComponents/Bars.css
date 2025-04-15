@@ -1,0 +1,26 @@
+.bars{
+    margin: 0 auto;
+    min-height: 520px;
+    min-width: 95%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.bar{
+    background-color: #2E88C7;
+    color: #282c34;
+    display: inline-block;
+    font-size: 10px;
+    font-weight: bold;
+    margin: 0 2px;
+    text-align: center;
+    transition-duration: 150ms;
+    transition-property: height;
+    transition-timing-function: ease-in;
+
+    display: inline-block;  
+    width: 20px;            
+    margin-right: 2px;    
+    color: white;          
+    position: relative; 
+}
