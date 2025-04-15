@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { NavLink, Routes, Route } from 'react-router-dom';
+import './App.css';
+
+import Home from './pages/Home';
+import SortVisualizer from './pages/sortingComponents/Visualizer';
+import SearchVisualizer from './pages/searchComponents/Visualizer';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div className='app'>
+
+      <nav>
+      <h3>Visualizer</h3>
+        <ul>
+          <li><NavLink className="NavLink" to="/" style={({ isActive }) => { return isActive ? { borderBottom: "3px solid green" } : {}}}>Home</NavLink></li>
+          <li><NavLink className="NavLink" to="/sorting" style={({ isActive }) => { return isActive ? { borderBottom: "3px solid green" } : {}}}>Sorting</NavLink></li>
+          <li><NavLink className="NavLink" to="/searching" style={({ isActive }) => { return isActive ? { borderBottom: "3px solid green" } : {}}}>Searching</NavLink></li>
+        </ul>
+      </nav>
+
+      <Routes>
+      <Route path='/' element={  <Home /> } exact />
+      <Route path="/sorting" element={  <SortVisualizer />} />
+      <Route path="/searching" element={  <SearchVisualizer />} />
+     </Routes>
+
+    </div>
+       
     </>
   )
 }
 
-export default App
+export default App;
