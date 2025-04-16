@@ -1,55 +1,55 @@
-function InputBar({length, speed, isSearching, generateRandomArray, handleSpeed, handleLength, 
-    algo, setAlgo, handleSearch}) { 
+import { useEffect, useState } from "react";
+import './Bars.css'
+
+function Bars({blocks, checked, found, mid}){
+  
+    const [width, setWidth] = useState(Math.min(20, Math.ceil(window.innerWidth / blocks.length) - 5));
+
+    useEffect(() => {
+      const handleResize = () => {
+        setWidth(Math.min(20, Math.ceil(window.innerWidth / blocks.length) - 8))
+    }
+    window.addEventListener('resize', handleResize);
+    setWidth(Math.min(20, Math.ceil(window.innerWidth / blocks.length) - 8));
+    }, [blocks.length])
 
     return(
         <>
-        <p>Inputs: </p>
+          <div className="bars">
+            {blocks.map( (num, key) => {
 
-        <form>
-                <label>Speed</label>
-                <input 
-                type="range"
-                min="1"
-                max="10"
-                name="speed"
-                value={Math.ceil(400/ speed)}
-                disabled={isSearching}
-                onChange={handleSpeed}
-                ></input>
+                const height = num * 500 / blocks.length;
+                
+                let bg = 'blue';
 
-                <label>Length: </label>
-                <input type="range" 
-                name="length"
-                min='5'
-                max={100}
-                step='1'
-                value={length}
-                disabled={isSearching}
-                onChange={handleLength}
-                 />
-                {/* <label>Speed: </label>
-                <input type="number" min={30} max={90}/> */}
-                <label>Select Algorithm:  </label>
-                <select 
-                name="algo"
-                value={algo}
-                disabled={isSearching}
-                onChange={(e) => setAlgo(e.target.value)}
-                >
-                    <option value="linearSearch">Linear Search</option>
-                    <option value="binarySearch">Binary Search</option>
-                    <option value="exponentialSearch">Exponential Search</option>
-                    <option value="interpolationSearch">Interpolation Search</option>
-                    <option value="jumpSearch">Jump Search</option>
-                    <option value="fibonacciSearch">Finonnaci Search</option>
-                </select>
+                if(checked && (key === checked[0] || key === checked[1])){ // left and right
+                  bg = 'yellow';
+                }
 
-                <button onClick={generateRandomArray} disabled={isSearching}>Randomize</button>
-                <button onClick={handleSearch} disabled={isSearching}>Search</button>
-            </form>
+                if(mid && mid.includes(key)){ /// mid
+                  bg = 'pink';
+                }
 
+                if(found && found.includes(key)){  // found
+                  bg="green";
+                }
+
+                // if(sortedIndex && sortedIndex.includes(key)){
+                //   bg = 'green';
+                // }
+                
+                const barStyle = {
+                    'backgroundColor': bg,
+                    'color': 'black', 
+                    'height': height, 
+                    'width': width,
+                    'border':'1px solid black'
+                }
+                return <div key={key} className="bar" style={barStyle}>{num}</div>
+            })}
+          </div>
         </>
     )
 }
 
-export default InputBar;
+export default Bars;
