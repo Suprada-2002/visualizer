@@ -1,0 +1,49 @@
+.grid-space {
+    display: flex;
+  }
+  
+  .legend{
+    flex: 30%;
+  }
+  
+  .grid-container {
+      margin: 1% auto;
+    }
+    
+    .container{
+      display: flex;
+      flex-wrap: wrap;
+    }
+  
+    .left {
+      flex: 30%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .right{
+      flex: 70%;
+      justify-content: flex-start;
+      display: flex;
+      align-items: center;
+    }
+  
+    .btn {
+      background-color: #E2E2E2;
+      color: #1F1F1F;
+      border: none;
+      outline: none;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      margin: 0 10px;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+  
+    @media (max-width: 800px) {
+      .right, .left {
+        flex: 100%;
+      }
+    }
