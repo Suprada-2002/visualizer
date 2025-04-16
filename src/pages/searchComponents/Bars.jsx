@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import './Bars.css'
 
-function Bars({blocks, checked, found, sortedIndex}){
+function Bars({blocks, checked, found, mid}){
   
     const [width, setWidth] = useState(Math.min(20, Math.ceil(window.innerWidth / blocks.length) - 5));
 
@@ -26,11 +26,11 @@ function Bars({blocks, checked, found, sortedIndex}){
                   bg = 'yellow';
                 }
 
-                if(checked && key === found[3]){
+                if(mid && mid.includes(key)){ /// mid
                   bg = 'pink';
                 }
 
-                if(found && found.includes(key)){
+                if(found && found.includes(key)){  // found
                   bg="green";
                 }
 
