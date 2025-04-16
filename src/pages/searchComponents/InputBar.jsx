@@ -1,5 +1,5 @@
 function InputBar({length, speed, isSearching, generateRandomArray, handleSpeed, handleLength, 
-    algo, setAlgo, handleSearch, searchingEle}) {
+    algo, setAlgo, handleSearch}) { 
 
     return(
         <>
@@ -43,8 +43,6 @@ function InputBar({length, speed, isSearching, generateRandomArray, handleSpeed,
                     <option value="jumpSearch">Jump Search</option>
                     <option value="fibonacciSearch">Finonnaci Search</option>
                 </select>
-
-                <label>Element to be Searched: {searchingEle}</label>
 
                 <button onClick={generateRandomArray} disabled={isSearching}>Randomize</button>
                 <button onClick={handleSearch} disabled={isSearching}>Search</button>
