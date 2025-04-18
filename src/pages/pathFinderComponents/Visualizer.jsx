@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { dijkstra } from './algorithms/dijkstra';
-import { AStar } from './algorithms/aStar';
+import { AStar } from './algorithms/AStar';
 import { dfs } from './algorithms/dfs';
 import { bfs } from './algorithms/bfs';
 import './Visualizer.css';

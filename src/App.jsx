@@ -1,9 +1,11 @@
 import { NavLink, Routes, Route } from 'react-router-dom';
 import './App.css';
+import {Squirrel} from 'lucide-react';
 
 import Home from './pages/Home';
 import SortVisualizer from './pages/sortingComponents/Visualizer';
 import SearchVisualizer from './pages/searchComponents/Visualizer';
+import PathFindingVisualizer from './pages/pathFinderComponents/Visualizer';
 
 function App() {
 
@@ -33,6 +35,7 @@ function App() {
       <Route path='/' element={  <Home /> } exact />
       <Route path="/sorting" element={  <SortVisualizer />} />
       <Route path="/searching" element={  <SearchVisualizer />} />
+      <Route path="/pathfinding" element={ <PathFindingVisualizer/>} />
      </Routes>
 
     </div>
