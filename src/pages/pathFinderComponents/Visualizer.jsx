@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { dijkstra } from './algorithms/dijkstra.js';
+import { dijkstra } from './algorithms/dijkstra';
 import { AStar } from './algorithms/aStar';
 import { dfs } from './algorithms/dfs';
 import { bfs } from './algorithms/bfs';
 import './Visualizer.css';
 import Node from './Node/Node.jsx';
-import "../App.css";
-import {Github, Slack} from 'lucide-react';  
+import {Github, Slack} from 'lucide-react'; 
 
 const Visualizer = () => {
   // State variables
