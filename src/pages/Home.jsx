@@ -32,6 +32,16 @@ function Home(){
                 </ul>
             </div>
 
+            <div className="box" onClick={() => navigate('/pathfinding')}>
+                <h4>Path Finding Algorithms</h4>
+                <p>Algorithms Implemented: </p>
+                <ul>
+                    <li>A* Path Finding Algorithm</li>
+                    <li>Breadth First Drach (BFS)</li>
+                    <li>Depth First Search (DFS)</li>
+                </ul>
+            </div>
+
         </div>
         </>
     )
