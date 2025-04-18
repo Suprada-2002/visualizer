@@ -3,8 +3,18 @@
   margin: 0;
   box-sizing: border-box;
 
-  font-family: "Montserrat", serif;
-  font-optical-sizing: auto;
   background-color: #1b1b1d;
   color: #e1e4e8;
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+
+  --grey: #1b1b1d;
+  --blue: #2E88C7;
+  --red : #b62a3c;
+  --green: #30a46c;
+  --orange: #c45050;
+  --yellow: #f9b44e;
+  --gray : #414853;
+  --white: #bbbec1;
+  --purple: #8e5cd9;
 }
