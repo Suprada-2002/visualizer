@@ -12,12 +12,21 @@ function App() {
     <div className='app'>
 
       <nav>
-      <h3>Visualizer</h3>
-        <ul>
-          <li><NavLink className="NavLink" to="/" style={({ isActive }) => { return isActive ? { borderBottom: "3px solid green" } : {}}}>Home</NavLink></li>
-          <li><NavLink className="NavLink" to="/sorting" style={({ isActive }) => { return isActive ? { borderBottom: "3px solid green" } : {}}}>Sorting</NavLink></li>
-          <li><NavLink className="NavLink" to="/searching" style={({ isActive }) => { return isActive ? { borderBottom: "3px solid green" } : {}}}>Searching</NavLink></li>
-        </ul>
+        <div className='logo'>
+          <Squirrel size={55} color='#c45050' /> <p style={{"fontWeight":900, "fontSize":"35px"}} > Visualizer</p>
+        </div>
+        <div className='links'>
+        {/* <ul>
+          <li><NavLink className="NavLink" to="/" style={({ isActive }) => { return isActive ? { borderBottom: "3px solid #c45050" } : {}}}>Back to Home</NavLink></li>
+          <li><NavLink className="NavLink" to="/sorting" style={({ isActive }) => { return isActive ? { borderBottom: "3px solid #c45050" } : {}}}>About Me</NavLink></li>
+        </ul> */}
+        <div className='link'>
+        <NavLink className="NavLink" to="/" style={({ isActive }) => { return isActive ? { borderBottom: "3px solid #c45050" } : {}}}>Back to Home</NavLink>
+        <NavLink className="NavLink" to="/sorting" style={({ isActive }) => { return isActive ? { borderBottom: "3px solid #c45050" } : {}}}>About Me</NavLink>
+        </div>
+        
+        </div>
+      
       </nav>
 
       <Routes>
