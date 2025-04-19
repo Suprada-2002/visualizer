@@ -9,3 +9,9 @@
 ### Searching Algorithms
 1. Linear Search
 2. Binary Search
+
+### Path Findin Algorithms
+1. A* path finding algorithm
+2. BFS (Breadth FIrst Search)
+3. DFS (Depth First Seatch)
+4. Dijkstra Algorithm
