@@ -1,5 +1,6 @@
 import './Home.css';
 import { useNavigate } from 'react-router-dom';
+import {CirclePlay} from 'lucide-react'
 
 function Home(){
 
@@ -7,42 +8,147 @@ function Home(){
 
     return(
         <>
-        <p>Home</p>
-        <div className="algoBoxes">
+    <div className="ag-format-container">
+        <div className="ag-courses_box">
 
-            <div className="box" onClick={() => navigate('/sorting')}>
-                <h4>Sorting Algorithms</h4>
-                <p>Algorithms Implemented: </p>
-                <ul>
-                    <li>Bubble Sort</li>
-                    <li>Selection Sort</li>
-                    <li>Insertion Sort</li>
-                    <li>Merge Sort</li>
-                    <li>Quick Sort</li>
-                </ul>
-            </div>
+    <div className="ag-courses_item" onClick={() => navigate('/sorting')} >
+      <a href="#" className="ag-courses-item_link">
+        <div className="ag-courses-item_bg"></div>
 
-            <div className="box" onClick={() => navigate('/searching')}>
-                <h4>Searching Algorithms</h4>
-                <p>Algorithms Implemented: </p>
-                <ul>
-                    <li>Linear Search</li>
-                    <li>Binary Search</li>
-                    <li>Exponential Search</li>
-                </ul>
-            </div>
-
-            <div className="box" onClick={() => navigate('/pathfinding')}>
-                <h4>Path Finding Algorithms</h4>
-                <p>Algorithms Implemented: </p>
-                <ul>
-                    <li>A* Path Finding Algorithm</li>
-                    <li>Breadth First Drach (BFS)</li>
-                    <li>Depth First Search (DFS)</li>
-                </ul>
-            </div>
-
+        <div className="ag-courses-item_title">
+          Sorting Algorithm Visualization 
         </div>
+
+        <div className="ag-courses-item_date-box">
+          <CirclePlay width={40} color='#f9b234' />
+          {/* <span className="ag-courses-item_date">
+            04.11.2022
+          </span> */}
+        </div>
+      </a>
+    </div>
+
+    <div className="ag-courses_item" onClick={() => navigate('/searching')} >
+      <a href="#" className="ag-courses-item_link">
+        <div className="ag-courses-item_bg"></div>
+
+        <div className="ag-courses-item_title">
+          Searching Algorithm Visualization
+        </div>
+
+        <div className="ag-courses-item_date-box">
+         <CirclePlay width={40} color='#f9b234' />
+          {/* <span className="ag-courses-item_date">
+            04.11.2022
+          </span> */}
+        </div>
+      </a>
+    </div>
+
+    <div className="ag-courses_item" onClick={() => navigate('/pathfinding')}  >
+      <a href="#" className="ag-courses-item_link">
+        <div className="ag-courses-item_bg"></div>
+
+        <div className="ag-courses-item_title">
+          Path-Finding Algorithm Visualization
+        </div>
+
+        <div className="ag-courses-item_date-box">
+            <CirclePlay width={40} color='#f9b234' />
+          {/* <span className="ag-courses-item_date">
+            04.11.2022
+          </span> */}
+        </div>
+      </a>
+    </div>
+
+    <div className="ag-courses_item">
+      <a href="#" className="ag-courses-item_link">
+        <div className="ag-courses-item_bg"></div>
+
+        <div className="ag-courses-item_title">
+          Prime Number Visualization
+        </div>
+
+        <div className="ag-courses-item_date-box">
+         <CirclePlay width={40} color='#f9b234' />
+          {/* <span className="ag-courses-item_date">
+            04.11.2022
+          </span> */}
+        </div>
+      </a>
+    </div>
+
+    <div className="ag-courses_item">
+      <a href="#" className="ag-courses-item_link">
+        <div className="ag-courses-item_bg"></div>
+
+        <div className="ag-courses-item_title">
+          Fibonacci Series Visualization
+        </div>
+
+        <div className="ag-courses-item_date-box">
+         <CirclePlay width={40} color='#f9b234' />
+          {/* <span className="ag-courses-item_date">
+            30.11.2022
+          </span> */}
+        </div>
+      </a>
+    </div>
+
+    <div className="ag-courses_item">
+      <a href="#" className="ag-courses-item_link">
+        <div className="ag-courses-item_bg"></div>
+
+        <div className="ag-courses-item_title">
+          Ant-Colony Visualization
+        </div>
+
+        <div className="ag-courses-item_date-box">
+         <CirclePlay width={40} color='#f9b234' />
+          {/* <span className="ag-courses-item_date">
+            30.11.2022
+          </span> */}
+        </div>
+      </a>
+    </div>
+
+    <div className="ag-courses_item">
+      <a href="#" className="ag-courses-item_link">
+        <div className="ag-courses-item_bg">
+        </div>
+        <div className="ag-courses-item_title">
+          Digital Marketing
+        </div>
+
+        <div className="ag-courses-item_date-box">
+         <CirclePlay width={40} color='#f9b234' />
+          {/* <span className="ag-courses-item_date">
+            30.11.2022
+          </span> */}
+        </div>
+      </a>
+    </div>
+
+    <div className="ag-courses_item">
+      <a href="#" className="ag-courses-item_link">
+        <div className="ag-courses-item_bg"></div>
+
+        <div className="ag-courses-item_title">
+          Interior Design
+        </div>
+
+        <div className="ag-courses-item_date-box">
+         <CirclePlay width={40} color='#f9b234' />
+          {/* <span className="ag-courses-item_date">
+            30.11.2022
+          </span> */}
+        </div>
+      </a>
+    </div>
+
+  </div>
+</div>
         </>
     )
 }
