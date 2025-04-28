@@ -3,8 +3,8 @@ import InputBar from "./InputBar";
 import Bars from "./Bars";
 
 import { bubbleSort, selectionSort, insertionSort } from "./Algorithms";
-import {quickSort} from './QuickSort.jsx';
-import {mergeSort} from './MergeSort.jsx';
+import quickSort from './QuickSort.jsx';
+import mergeSort from './MergeSort.jsx';
 
 function Visualizer(){
 
