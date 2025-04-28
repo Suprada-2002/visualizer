@@ -106,6 +106,8 @@ function Visualizer(){
             setIsSorting(true);
             algo === "bubbleSort" ? sortBlocks(bubbleSort(blocks)):
             algo === "selectionSort" ? sortBlocks(selectionSort(blocks)):
+            algo === "mergeSort" ? sortBlocks(mergeSort(blocks)) :
+            algo === "quickSort" ? sortBlocks(quickSort(blocks)) :
             algo === "insertionSort" ? sortBlocks(insertionSort(blocks)) : (() => {
                 setIsSorting(false);
             })()

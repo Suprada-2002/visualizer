@@ -37,6 +37,8 @@ function InputBar({length, speed, isSorting, generateRandomArray, handleSpeed, h
                     <option value="bubbleSort">Bubble Sort</option>
                     <option value="selectionSort">Selection Sort</option>
                     <option value="insertionSort">Insertion Sort</option>
+                    <option value="mergeSort">Merge Sort</option>
+                    <option value="quickSort">Quick Sort</option>
                 </select>
 
                 <button onClick={generateRandomArray} disabled={isSorting}>Randomize</button>
