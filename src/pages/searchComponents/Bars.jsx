@@ -20,18 +20,18 @@ function Bars({blocks, checked, found, mid}){
 
                 const height = num * 500 / blocks.length;
                 
-                let bg = 'blue';
+                let bg = "#414853";
 
                 if(checked && (key === checked[0] || key === checked[1])){ // left and right
-                  bg = 'yellow';
+                  bg = '#f9b44e';
                 }
 
                 if(mid && mid.includes(key)){ /// mid
-                  bg = 'pink';
+                  bg = '#2E88C7';
                 }
 
                 if(found && found.includes(key)){  // found
-                  bg="green";
+                  bg = '#30a46c';
                 }
 
                 // if(sortedIndex && sortedIndex.includes(key)){
