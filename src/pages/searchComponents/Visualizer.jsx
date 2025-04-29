@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import InputBar from "./InputBar";
 import Bars from "./Bars";
 
-import { linearSearch, binarySearch, exponentialSearch} from "./Algorithm";
+import { linearSearch, binarySearch, exponentialSearch, interpolationSearch, fibonacciSearch, jumpSearch} from "./Algorithm";
 
 function Visualizer(){
 
-        const [length, setLength] = useState(6);
+        const [length, setLength] = useState(40);
         const [searchingEle, setIsSearchingEle] = useState(Math.floor(Math.random() * (length - 1 + 1) + 1));
         const [blocks, setBlocks] = useState([]);
         const [isSearching, setIsSearching] = useState(false);
@@ -22,6 +22,9 @@ function Visualizer(){
 
         function generateRandomArray(length){
             setIsSearching(false);
+            setChecked([]);
+            setMid([]);
+            setFound([]);
             const randomArray = Array.from(Array(length+1).keys()).slice(1);
                 for (let i = randomArray.length - 1; i > 0; i--) {
                 const indx = Math.floor(Math.random() * (i - 1))
@@ -76,12 +79,16 @@ function Visualizer(){
             
             setIsSearching(true);
             algo === "linearSearch" ? searchBlocks(linearSearch(blocks, searchingEle)) :
-            algo === "binarySearch" ? searchBlocks(binarySearch(blocks, searchingEle)) : (() => { setIsSearching(false) })()
+            algo === "exponentialSearch" ? searchBlocks(exponentialSearch(blocks, searchingEle)) :
+            algo === "interpolationSearch" ? searchBlocks(interpolationSearch(blocks, searchingEle)) :
+            algo === "binarySearch" ? searchBlocks(binarySearch(blocks, searchingEle)) : 
+            algo === "jumpSearch" ? searchBlocks(jumpSearch(blocks, searchingEle)) :
+            algo === "fibonacciSearch" ? searchBlocks(fibonacciSearch(blocks, searchingEle)) : (() => { setIsSearching(false) })()
         };
 
     return(
         <>
-        <h3>Sorting Algorithm</h3>
+        <h3>Searching Algorithm</h3>
 
         <InputBar length={length} speed={speed} isSorting={isSearching} 
         generateRandomArray={generateRandomArray} handleSpeed={handleSpeed}
