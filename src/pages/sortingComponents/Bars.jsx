@@ -4,6 +4,7 @@ import './Bars.css'
 function Bars({blocks, swap, compare, sortedIndex}){
   
     const [width, setWidth] = useState(Math.min(20, Math.ceil(window.innerWidth / blocks.length) - 5));
+    const color = blocks.length <= 50 && width > 14 ? '#e1e4e8' : 'transparent'
 
     useEffect(() => {
       const handleResize = () => {
@@ -16,32 +17,32 @@ function Bars({blocks, swap, compare, sortedIndex}){
     return(
         <>
           <div className="bars">
-            {blocks.map( (num, key) => {
+            {blocks.map( (num, i) => {
 
                 const height = num * 500 / blocks.length;
                 
                 let bg = "#414853";
 
-                if(compare && (key   === compare[0] || key === compare[1])){
+                if(compare && (i === compare[0] || i === compare[1])){
                   bg = '#f9b44e';
                 }
 
-                if(swap && (key === swap[0] || key === swap[1])){
+                if(swap && swap && (i === swap[0] || i === swap[1])){
                   bg = '#2E88C7';
                 }
 
-                if(sortedIndex && sortedIndex.includes(key)){
+                if(sortedIndex && sortedIndex.includes(i)){
                   bg = '#30a46c';
                 }
                 
                 const barStyle = {
                     'backgroundColor': bg,
-                    'color': '#e1e4e8', 
+                    'color': color, 
                     'height': height, 
                     'width': width,
                     'border':'1px solid black'
                 }
-                return <div key={key} className="bar" style={barStyle}>{num}</div>
+                return <div key={i} className="bar" style={barStyle}>{num}</div>
             })}
           </div>
         </>
