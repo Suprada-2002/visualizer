@@ -1,130 +1,133 @@
-import { useState, useEffect } from "react";
-import InputBar from "./InputBar";
-import Bars from "./Bars";
+import { useEffect,useState } from "react";
+import InputBar from "./InputBar.jsx";
+import Legend from "./Legend.jsx"
 
-import { bubbleSort, selectionSort, insertionSort } from "./Algorithms";
-import quickSort from './QuickSort.jsx';
-import mergeSort from './MergeSort.jsx';
+import { bubbleSort, selectionSort, insertionSort} from "./Algorithms.jsx";
+import quickSort from "./QuickSort.jsx";
+import mergeSort from "./MergeSort.jsx"
 
-function Visualizer(){
+import Bars from "./Bars.jsx";
 
-        const [length, setLength] = useState(40);
-        const [blocks, setBlocks] = useState([]);
-        const [isSorting, setIsSorting] = useState(false);
-        const [algo, setAlgo] = useState("bubbleSort");
-        const [speed, setSpeed] = useState(250);
-        const [swap, setSwap] = useState([]);
-        const [compare, setCompare] = useState([]);
-        const [sortedIndex, setSortedIndex] = useState([]);
+function Sorting() {
 
-        useEffect(() => {
-            generateRandomArray(length);
-        }, [algo, length])
+	{/* states */}
+const [len, setLength] = useState(40);
+const [algo,setAlgo] = useState('bubbleSort');
+const [blocks, setBlocks] = useState([])
+const [sorting, setSorting] = useState(false)
+const [completed, setCompleted] = useState(true)
+const [speed, setSpeed] = useState(250)
+const [compare, setCompare] = useState([])
+const [swap, setSwap] = useState([])
+const [sortedIndex, setSortedIndex] = useState([])
 
-        function generateRandomArray(length){
-            setIsSorting(false);
-            setSortedIndex([]);
-            const randomArray = Array.from(Array(length+1).keys()).slice(1);
-                for (let i = randomArray.length - 1; i > 0; i--) {
-                const indx = Math.floor(Math.random() * (i - 1))
-                const temp = randomArray[i]
-            
-                randomArray[i] = randomArray[indx]
-                randomArray[indx] = temp
-            }
-            setBlocks(randomArray);
-        }
+const generateRandomArray = (len) => {
 
-        function handleSpeed(event) {
-            setSpeed(400/Number(event.target.value))
-        }
+	setCompleted(false);
+	setSorting(false);
+	setSortedIndex([]);
+	const randomArray = Array.from(Array(len+1).keys()).slice(1);
+	for (let i = randomArray.length - 1; i > 0; i--) {
+   const indx = Math.floor(Math.random() * (i - 1))
+   const temp = randomArray[i]
 
-        function handleLength(event) {
-            setLength(Number(event.target.value))
-        }
+   randomArray[i] = randomArray[indx]
+   randomArray[indx] = temp
+   }
+   setBlocks(randomArray);
+}
 
-        function handleSort(){
-           
+useEffect(() => {
+	generateRandomArray(len);
+}, [len,algo])
 
-            // const sortBlocks = (order) => {
-            //     ( function loop(i) {
-            //         setTimeout(function(){
-            //             const [j, k, arr, index] = order[i];
-            //             setCompare([j,k]);
-            //             setSwap([]);
+{/* function */}
+const handleLength = (event) => {
+	setLength(Number(event.target.value))
+}
 
-            //             if(index !== null){
-            //                 setSortedIndex((prevState) => ([...prevState, index]))
-            //             }
+const handleSpeed = (event) => {
+	console.log("speed: ",speed);
+	setSpeed(Math.ceil(400 / Number(event.target.value)))
+}
 
-            //             if(arr){
-            //                 setBlocks(arr);
-            //                 if(j !== null || k != null) setSwap([j,k])
-            //             }
+const handleAlgo = (event) => {
+    console.log("Algo: ",algo);
+	setAlgo(event.target.value)
+}
 
-            //             if(++i < order.length) loop(i);
-            //             else {
-            //                 setIsSorting(false);
-            //             }
+const handleSort = () => {
+	const sortAccOrder = (order) => {
+		(function loop(i) {
+			setTimeout(function () {
+				const [j, k, arr, index] = order[i]
+				setCompare([j, k])
+				setSwap([]);
 
-            //         }, speed)
-            //     })(0)
-               
-            // }
+				if(index !== null){
+					setSortedIndex((prevState) => (
+						[...prevState, index]
+					))
+				}
+	
+				if(arr){
+					
+					setBlocks(arr)
+					if(j !== null || k != null)
+						setSwap([j, k])
 
-            const sortBlocks = (order) => {
-                console.log("order", order);
-                let i = 0;
-            
-                const processOrder = () => {
-                    if (i >= order.length) {
-                        setIsSorting(false);
-                        return;
-                    }
-            
-                    const [j, k, arr, index] = order[i];
-                    setCompare([j, k]);
-                    setSwap([]);
-            
-                    if (index !== null) {
-                        setSortedIndex((prevState) => [...prevState, index]);
-                    }
-            
-                    if (arr) {
-                        setBlocks(arr);
-                        if (j !== null || k !== null) setSwap([j, k]);
-                    }
-            
-                    i++;
-                    setTimeout(processOrder, speed);
-                };
-            
-                processOrder();
-            };
-            
+				}
+				if (++i < order.length){
+					loop(i)
+				} else {
+					setSorting(false)
+					setCompleted(true)
+				}   
+			}, speed)
+		})(0)
+		
+	}
 
-            setIsSorting(true);
-            algo === "bubbleSort" ? sortBlocks(bubbleSort(blocks)):
-            algo === "selectionSort" ? sortBlocks(selectionSort(blocks)):
-            algo === "mergeSort" ? sortBlocks(mergeSort(blocks)) :
-            algo === "quickSort" ? sortBlocks(quickSort(blocks)) :
-            algo === "insertionSort" ? sortBlocks(insertionSort(blocks)) : (() => {
-                setIsSorting(false);
-            })()
-        }
+	setSorting(true)
+
+	algo === 'bubbleSort' ? sortAccOrder(bubbleSort(blocks)) : 
+	algo === 'insertionSort' ?  sortAccOrder(insertionSort(blocks)) :
+	algo === 'selectionSort' ? sortAccOrder(selectionSort(blocks)) :
+	algo === 'mergeSort' ? sortAccOrder(mergeSort(blocks)) : 
+	algo === 'quickSort' ? sortAccOrder(quickSort(blocks)) : (() => {
+		setSorting(false)
+		setCompleted(true)
+	})()
+}
 
     return(
-        <>
-        <h3>Sorting Algorithm</h3>
+ <div>
+		<div className="logo">
+			<h3>Sorting Visualizer</h3>
+		</div>
+					<InputBar 
+							generateRandomArray={() => generateRandomArray(len)}
+							handleLength={handleLength} 
+							handleSpeed={handleSpeed}
+							handleAlgo={handleAlgo}
+							handleSort={handleSort} 
+							sorting={sorting}
+							completed={completed}
+							len={len}
+							speed={speed}
+							algo={algo}
+							setAlgo={setAlgo}
+						/>
 
-        <InputBar length={length} speed={speed} isSorting={isSorting} 
-        generateRandomArray={generateRandomArray} handleSpeed={handleSpeed}
-        handleLength={handleLength} algo={algo} setAlgo={setAlgo} handleSort={handleSort}
-        />
-
-        <Bars blocks={blocks} swap={swap} compare={compare} sortedIndex={sortedIndex}/>
-        </>
+						<Legend algo={algo} len={len} />
+			
+							<Bars
+							swap={swap}
+							blocks={blocks}
+							compare={sorting && compare} sortedIndex={sortedIndex} 
+							/>
+			</div>
     )
 }
 
-export default Visualizer;
+export default Sorting;
