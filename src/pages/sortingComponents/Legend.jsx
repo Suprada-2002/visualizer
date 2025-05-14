@@ -1,22 +1,30 @@
-import {SwatchBook, CheckCheck, GitCompare, Ruler} from 'lucide-react'
-const Legend = ({algo, len}) => {
+import './Legend.css'
+
+const Legend = ({algo, len, noOfSwap, noOfComps}) => {
 
     return (
-        <div className='d-flex justify-content-center pt-2'>
-             <div className='align-items-center'> 
-             <span className='sq compare'></span> <Ruler color='#da8b17' /> Size: {len}
-            </div>
-            <div className='align-items-center'> 
-                <span className='sq compare'></span> <GitCompare color='#2E88C7' /> Compare
-            </div>
-            <div className='align-items-center'> 
-                <span className='sq swap'></span> <SwatchBook color='#F81774' /> {algo !== 'mergeSort' ? 'Swap' : 'Taking From Auxillary Space'}
-            </div>
-            <div className='align-items-center'> 
-                <span className='sq sorted'></span> <CheckCheck color="#4bc52e" /> Sorted
-            </div>
+        <div className='lengendContainer'>
 
+        <div className='squares'>
+                    <div className='block'> 
+                        <span className='sq compare'></span> Compare
+                    </div>
+                    <div className='block'> 
+                        <span className='sq swap'></span>  {algo !== 'mergeSort' ? 'Swap' : 'Taking From Auxillary Space'}
+                    </div>
+                    <div className='block'> 
+                        <span className='sq sorted'></span>  Sorted
+                    </div>
         </div>
+            
+
+            <div className='info'>
+                    <div className='infoLen'> Length of Array : {len} </div>
+                    <div className='infoBlock'>  Nos of Swaps : {noOfSwap} </div>
+                    <div className='infoBlock'>  Nos Of Comparison : {noOfComps} </div>
+            </div>
+        </div>
+        
     )
 }
 
