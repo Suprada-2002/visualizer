@@ -1,0 +1,66 @@
+.InputbarWrapper{
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+    gap: 30px;
+    padding: 10px 10px;
+}
+
+button{
+    padding: 10px 10px;
+    border-radius: 10px;
+    background-color: #2E88C7;
+    margin-left: 10px;
+    color: #bbbec1;
+    font-weight: bold;
+    font-family: "Montserrat", serif;
+    border: none;
+    font-size: 15px;
+}
+
+button:hover{
+    background-color: #3533a8;
+}
+
+button:disabled{
+     background-color: #414853;
+}
+
+.form-input {
+    accent-color: #2E88C7;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.form-input:disabled {
+    accent-color: #414853;
+} 
+
+.form-input[type=select] {
+   background-color: #2E88C7;
+}
+/* .form-input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+label{
+    font-weight: 500;
+}
+
+select{
+    background-color: #2E88C7;
+    border: none;
+     color: #bbbec1;
+    font-weight: 600;
+    font-family: "Montserrat", serif;
+     font-size: 15px;
+    padding: 8px 3px;
+     border-radius: 3px;
+}
+
+select:disabled{
+     accent-color: #414853;
+}
