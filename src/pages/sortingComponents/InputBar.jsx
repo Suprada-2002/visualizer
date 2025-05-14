@@ -1,37 +1,45 @@
-function InputBar({length, speed, isSorting, generateRandomArray, handleSpeed, handleLength, 
-    algo, setAlgo, handleSort}) {
+import './InputBar.css';
+
+function InputBar({length, speed, sorting, generateRandomArray, handleSpeed, handleLength, 
+    algo, handleAlgo, handleSort, setAlgo}) {
 
     return(
         <>
-        <p>Inputs: </p>
-
-        <form>
+        <form className='InputbarWrapper'>
+            <div className='form-input'>
                 <label>Speed</label>
                 <input 
                 type="range"
                 min="1"
                 max="10"
                 value={Math.ceil(400/ speed)}
-                disabled={isSorting}
+                disabled={sorting}
                 onChange={handleSpeed}
                 ></input>
+            </div>
 
-                <label>Length: </label>
+            <div className='form-input'>
+                <label>Length</label>
                 <input type="range" 
                 min='5'
                 max={100}
                 step='1'
                 value={length}
-                disabled={isSorting}
+                disabled={sorting}
                 onChange={handleLength}
                  />
+
+             </div>
                 {/* <label>Speed: </label>
                 <input type="number" min={30} max={90}/> */}
-                <label>Select Algorithm:  </label>
+                
+            <div className='form-input'>
+                <label>Select Algorithm</label>
                 <select 
+                className='input-select'
                 name="algo"
                 value={algo}
-                disabled={isSorting}
+                disabled={sorting}
                 onChange={(e) => setAlgo(e.target.value)}
                 >
                     <option value="bubbleSort">Bubble Sort</option>
@@ -40,9 +48,12 @@ function InputBar({length, speed, isSorting, generateRandomArray, handleSpeed, h
                     <option value="mergeSort">Merge Sort</option>
                     <option value="quickSort">Quick Sort</option>
                 </select>
+            </div>
 
-                <button onClick={generateRandomArray} disabled={isSorting}>Randomize</button>
-                <button onClick={handleSort} disabled={isSorting}>Sort</button>
+            <div className='form-button'>
+                <button onClick={generateRandomArray} disabled={sorting}>Randomize</button>
+                <button onClick={handleSort} disabled={sorting}>Sort</button>
+            </div>
             </form>
 
         </>
